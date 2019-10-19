@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/proway2/demag.svg?branch=master)](https://travis-ci.org/proway2/demag)
+
 # DEMAG
 
 Calculates magnetic declination based on available online calculators. Before use read the usage rules of appropriate service.
