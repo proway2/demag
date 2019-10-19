@@ -2,8 +2,8 @@
 
 # DEMAG
 
-Calculates magnetic declination based on available online calculators. Before use read the usage rules of appropriate service.
-**Under current development!**
+Calculates magnetic declination based on available online calculators. Before use read the usage rules of appropriate service.    
+**Under active development!**
 
 ## Features
 
