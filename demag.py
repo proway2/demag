@@ -10,7 +10,7 @@ class MagneticDeclination:
         self.__providers = {
             "NOAA_WMM": functools.partial(self.__noaa_provider, "WMM"),
             "NOAA_IGRF": functools.partial(self.__noaa_provider, "IGRF"),
-            "BGS_WMM": functools.partial(self.__bgs_provider, "WMM")
+            "BGS_WMM": functools.partial(self.__bgs_provider, "WMM"),
         }
 
     def md(
@@ -27,12 +27,8 @@ class MagneticDeclination:
         Returns magnetic declination for certain lat/lon and date.
         """
 
-        if not self.__check__all_args(
-            lat, lon, elev, year, mon, day, provider
-        ):
-            raise ValueError(
-                f"Incorrect date year:{year}, mon:{mon} or date:{day}"
-            )
+        self.__check__all_args(lat, lon, elev, year, mon, day, provider)
+
         provider_method = self.__provider_factory(provider)
         return provider_method(lat, lon, elev, year, mon, day)
 
@@ -84,8 +80,6 @@ class MagneticDeclination:
     def __provider_factory(self, provider_name: str) -> bool:
         """Returns callable according to the provider's name"""
 
-        if not self.__is_provider_registered(provider_name):
-            ValueError(f"Unregistered provider {provider_name}")
         return self.__providers[provider_name]
 
     def __noaa_provider(self, model, lat, lon, elev, year, mon, date) -> float:
