@@ -2,7 +2,7 @@ language: python
 python:
   - "3.6"
 before_script:
-  - pip install -r requirement-dev.txt
+  - pip install -r requirements-dev.txt
 script:
   - coverage run --source=demag -m unittest tests/test_*.py
 after_success:
