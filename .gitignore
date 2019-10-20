@@ -1,3 +1,7 @@
 .vscode/
+env/
+htmlcov/
+__pycache__/
+
 *.code-workspace
-__pycache__
+.coverage
