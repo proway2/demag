@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/proway2/demag.svg?branch=master)](https://travis-ci.org/proway2/demag)
+[![Coverage Status](https://coveralls.io/repos/github/proway2/demag/badge.svg?branch=master)](https://coveralls.io/github/proway2/demag?branch=master)
 
 # DEMAG
 
