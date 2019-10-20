@@ -14,7 +14,7 @@ class TestWMMOnline(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             self.md_object.md(year=2000, mon=1, day=25)
 
-    def tday_E0(self):
+    def test_N0_E0(self):
         """WMM 0 0 2015-10-15"""
         self.assertAlmostEqual(
             self.md_object.md(lon=0, lat=0, year=2015, mon=10, day=15),
