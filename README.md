@@ -71,7 +71,7 @@ Calculates magnetic declination based on available online calculators. Before us
 ## Usage
 
 ## Tests
-python3 -m unittest tests/test_*.py
+python -m unittest tests/test_*.py
 
 ## License
 GPL v3
