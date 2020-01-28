@@ -118,13 +118,10 @@ class MagneticDeclination:
         if md_request.status_code != requests.codes.ok:
             raise RuntimeError(f"Unknown result")
 
-        try:
-            md_xml_tree = ET.fromstring(md_request.text)
-            md = float(
-                md_xml_tree.find("./result/declination").text.strip("\n")
-            )
-        except Exception as err:
-            raise
+        md_xml_tree = ET.fromstring(md_request.text)
+        md = float(
+            md_xml_tree.find("./result/declination").text.strip("\n")
+        )
 
         return md
 
@@ -137,7 +134,7 @@ class MagneticDeclination:
         """
 
         BASE_URL_BGS = (
-            "http://geomag.bgs.ac.uk/web_service/GMModels/wmm/2015v2/?"
+            "http://geomag.bgs.ac.uk/web_service/GMModels/wmm/2020/?"
             "latitude={lat:f}&longitude={lon:f}&altitude={elev:f}"
             "&date={date:s}&format={form}"
         )
@@ -154,14 +151,11 @@ class MagneticDeclination:
         if md_request.status_code != requests.codes.ok:
             raise RuntimeError(f"Unknown result")
 
-        try:
-            md = float(
-                md_request.json()["geomagnetic-field-model-result"][
-                    "field-value"
-                ]["declination"]["value"]
-            )
-        except Exception as err:
-            raise
+        md = float(
+            md_request.json()["geomagnetic-field-model-result"][
+                "field-value"
+            ]["declination"]["value"]
+        )
 
         # все ОК, возвращаем результат
         return md
